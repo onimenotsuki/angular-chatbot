@@ -1,2 +1,46 @@
 // Uikit framework
 @import '~uikit/src/less/uikit.theme.less';
+
+// Variables
+@chat-blue-dark-color: #2E3191;
+@chat-violet-color: #7670B2;
+@chat-facebook-color: #3B5998;
+@chat-google-color: #EA4335;
+@chat-white-color: #FFF;
+@chat-lightgray-color: #E9E9F0;
+@chat-gray-color: #AFAFB4;
+
+// Styles for custom elements
+.chat-header {
+  .uk-card-media-title {
+    color: inherit;
+    padding: 10px;
+  }
+
+  color: @chat-white-color;
+  background-color: @chat-blue-dark-color;
+}
+
+.chat-send-button {
+  &:hover, &.hover, &:focus, &.focus {
+    span[uk-icon] {
+      color: @chat-white-color;
+    }
+
+    border: 1px solid @chat-blue-dark-color;
+    background-color: @chat-blue-dark-color;
+  }
+
+  span[uk-icon] {
+    color: @chat-white-color;
+  }
+
+  border: 1px solid @chat-blue-dark-color;
+  background-color: @chat-blue-dark-color;
+}
+
+.uk-input.chat-input {
+  border: 1px solid @chat-lightgray-color;
+  color: @chat-gray-color;
+  background-color: @chat-lightgray-color;
+}
