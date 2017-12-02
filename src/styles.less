@@ -11,6 +11,13 @@
 @chat-gray-color: #AFAFB4;
 
 // Styles for custom elements
+.uk-card-body.chat-body {
+  max-height: 45vh;
+  min-height: 45vh;
+  height: 45vh;
+  overflow-y: scroll;
+}
+
 .chat-header {
   .uk-card-media-title {
     color: inherit;
@@ -19,6 +26,11 @@
 
   color: @chat-white-color;
   background-color: @chat-blue-dark-color;
+}
+
+.chat-body {
+  display: block;
+  list-style: none;
 }
 
 .chat-send-button {
@@ -43,4 +55,50 @@
   border: 1px solid @chat-lightgray-color;
   color: @chat-gray-color;
   background-color: @chat-lightgray-color;
+}
+
+.chat-dialog-box {
+  .chat-dialog-message {
+    padding: 10px 15px;
+    margin: auto;
+  }
+
+  &.chat-right {
+    .chat-dialog-message {
+      text-align: right;
+      color: @chat-blue-dark-color;
+    }
+
+    // styles for .chat-dialog-box.chat-right
+    float: right;
+    border-radius: 20px 20px 0 20px;
+    border: 1px solid @chat-blue-dark-color;
+  }
+
+  &.chat-left {
+    .chat-dialog-message {
+      text-align: left;
+      color: @chat-white-color;
+    }
+
+    // styles for .chat-dialog-box.chat-right
+    float: left;
+    border-radius: 20px 20px 20px 0;
+    border: 1px solid @chat-violet-color;
+    background-color: @chat-violet-color;
+  }
+
+  // styles for .chat-dialog-box
+  min-width: 0%;
+  max-width: 70%;
+}
+
+.chat-dialog-wrapper {
+  &:first-child {
+    margin-top: 0;
+  }
+
+  clear: both;
+  margin-top: 10px;
+  overflow: auto;
 }
