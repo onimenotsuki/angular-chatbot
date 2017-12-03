@@ -1,0 +1,37 @@
+/*Huge thanks to @tobiasahlin at http://tobiasahlin.com/spinkit/ */
+.spinner {
+  & > div {
+    .chat-right & {
+      background-color: @chat-blue-dark-color;
+    }
+
+    width: 10px;
+    height: 10px;
+    background-color: @chat-white-color;
+
+    border-radius: 100%;
+    display: inline-block;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+
+  .bounce1 {
+    animation-delay: -0.32s;
+  }
+
+  .bounce2 {
+    animation-delay: -0.16s;
+  }
+
+  // styles for .spinner
+  margin: 7px auto;
+  width: 70px;
+  text-align: center;
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+  } 40% {
+    transform: scale(1.0);
+  }
+}
