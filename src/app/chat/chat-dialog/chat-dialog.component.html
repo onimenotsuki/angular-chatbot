@@ -7,9 +7,13 @@
         </div>
 
         <ul class="uk-card-body chat-body">
-          <li class="chat-dialog-wrapper">
-            <div class="chat-dialog-box chat-right">
-              <p class="chat-dialog-message">Donec enim diam</p>
+          <li class="chat-dialog-wrapper" *ngFor="let message of messages | async">
+            <span class="img-chat left">
+              <img alt="ChatBot" class="uk-border-circle" src="assets/images/png/bot.png"/>
+            </span>
+
+            <div class="chat-dialog-box chat-left">
+              <p class="chat-dialog-message">{{ message.content }}</p>
             </div>
           </li>
 
@@ -48,18 +52,27 @@
           </li>
         </ul>
         <div class="uk-card-media-bottom chat-footer">
-          <div class="uk-grid-collapse uk-flex" uk-grid>
+          <form #form="ngForm"
+                class="uk-grid-collapse uk-flex"
+                (ngSubmit)="sendMessage(form)"
+                novalidate
+                uk-grid>
             <div class="uk-width-1-5@s uk-width-1-4">
-              <button class="uk-width-1-1 uk-button uk-button-default chat-send-button">
+              <button type="submit"
+                      [disabled]="form.invalid"
+                      class="uk-width-1-1 uk-button uk-button-default chat-send-button">
                 <span uk-icon="arrow-right"></span>
               </button>
             </div>
 
             <div class="uk-width-expand uk-flex-first">
-              <input class="uk-input chat-input"
-                     placeholder="Escribe tu mensaje..." />
+              <input #chat="ngModel"
+                     [(ngModel)]="chatMessage.content"
+                     class="uk-input chat-input"
+                     name="content"
+                     placeholder="Escribe tu mensaje..."/>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

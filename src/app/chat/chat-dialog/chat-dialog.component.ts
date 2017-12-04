@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../chat.service';
+import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/scan';
 
@@ -13,7 +14,9 @@ import { Message } from '../message';
 })
 export class ChatDialogComponent implements OnInit {
   messages: Observable<Message[]>;
-  formValue: string;
+  chatMessage = {
+    content: ''
+  };
 
   constructor(public _chat: ChatService) { }
 
@@ -23,8 +26,12 @@ export class ChatDialogComponent implements OnInit {
       .scan((acc, val) => acc.concat(val));
   }
 
-  sendMessage() {
-    this._chat.converse(this.formValue);
-    this.formValue = '';
+  sendMessage(form: NgForm) {
+    this._chat.converse(form.value.content);
+    form.resetForm();
+  }
+
+  logForm(form: NgForm) {
+    console.log(form);
   }
 }
