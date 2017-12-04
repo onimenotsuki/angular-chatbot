@@ -12,14 +12,15 @@
 
 // Styles for custom elements
 .uk-card-body.chat-body {
-  max-height: 45vh;
-  min-height: 45vh;
-  height: 45vh;
+  max-height: 50vh;
+  min-height: 50vh;
+  height: 50vh;
   overflow-y: scroll;
 }
 
 .chat-header {
   .uk-card-media-title {
+    margin-bottom: 0px;
     color: inherit;
     padding: 10px;
   }
@@ -30,6 +31,8 @@
 
 .chat-body {
   display: block;
+  margin-top: 0;
+  margin-bottom: 0;
   list-style: none;
 }
 
@@ -103,6 +106,10 @@
 
     height: 42px;
     width: 42px;
+  }
+
+  &:last-child {
+    margin-bottom: 20px;
   }
 
   &:first-child {
