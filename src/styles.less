@@ -10,8 +10,6 @@
 @chat-lightgray-color: #E9E9F0;
 @chat-gray-color: #AFAFB4;
 
-@import 'assets/stylesheets/animations.less';
-
 // Styles for custom elements
 .uk-card-body.chat-body {
   max-height: 45vh;
@@ -114,4 +112,23 @@
   clear: both;
   margin-top: 10px;
   overflow: auto;
+}
+
+.uk-button.chat-send-button[disabled] {
+  &:hover, &.hover, &:focus, &.focus {
+    span[uk-icon] {
+      color: @chat-white-color;
+    }
+
+    border: 1px solid @chat-blue-dark-color;
+    background-color: @chat-blue-dark-color;
+  }
+
+  span[uk-icon] {
+    color: @chat-white-color;
+  }
+
+  border: 1px solid @chat-blue-dark-color;
+  background-color: @chat-blue-dark-color;
+  cursor: not-allowed;
 }

@@ -14,6 +14,7 @@ import { Message } from '../message';
 })
 export class ChatDialogComponent implements OnInit {
   messages: Observable<Message[]>;
+  loadingBot: boolean = false;
   chatMessage = {
     content: ''
   };
@@ -27,8 +28,13 @@ export class ChatDialogComponent implements OnInit {
   }
 
   sendMessage(form: NgForm) {
-    this._chat.converse(form.value.content);
-    form.resetForm();
+    this.loadingBot = true;
+
+    setTimeout(() => {
+      this.loadingBot = false;
+      this._chat.converse(form.value.content);
+      form.resetForm();
+    }, 300);
   }
 
   logForm(form: NgForm) {
