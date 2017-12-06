@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 // Custom Modules
 import { ChatModule } from './chat/chat.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ChatModule } from './chat/chat.module';
   ],
   imports: [
     BrowserModule,
-    ChatModule
+    ChatModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
