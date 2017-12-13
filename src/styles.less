@@ -139,3 +139,121 @@
   background-color: @chat-blue-dark-color;
   cursor: not-allowed;
 }
+
+// Login Component
+.login {
+  &-facebook {
+    &:hover {
+      .login-icon-circle {
+        background-color: @chat-white-color;
+      }
+
+      .login-icon {
+        color: @chat-facebook-color;
+      }
+
+      background-color: darken(@chat-facebook-color, 10%);
+    }
+
+    transition: all 0.2s ease-in-out;
+    background-color: @chat-facebook-color;
+  }
+
+  &-google {
+    &:hover {
+      .login-icon-circle {
+        background-color: @chat-white-color;
+      }
+
+      .login-icon {
+        color: @chat-google-color;
+      }
+
+      background-color: darken(@chat-google-color, 10%);
+    }
+
+    transition: all 0.2s ease-in-out;
+    background-color: @chat-google-color;
+  }
+
+  &-separator {
+    width: 30px;
+    border: 2px solid @chat-blue-dark-color;
+    margin: auto;
+  }
+
+  &-logo {
+    width: 80px;
+  }
+
+  &-btn-wrapper {
+    .login-btn-frame {
+      color: inherit;
+    }
+
+    .login-icon {
+      // .login-icon-circle styles
+      &-circle {
+        width: 53px;
+        height: 53px;
+        border-radius: 50%;
+        border: 2px solid @chat-white-color;
+        float: left;
+        margin: -16px 4px;
+      }
+
+      // .login-icon styles
+      transition: all 0.2s ease-in-out;
+      margin: auto;
+      margin-top: 14px;
+      color: inherit;
+    }
+
+    // .login-btn-wrapper styles
+    clear: both;
+    width: 100%;
+    color: @chat-white-color;
+    padding: 20px 0;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 50px;
+  }
+}
+
+.login-footer {
+  p.footer-follow, p.footer-copy {
+    font-size: 0.9em;
+  }
+
+  .uk-iconnav {
+    .social-icon {
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      [uk-icon] {
+        color: inherit;
+      }
+
+      color: @chat-white-color;
+      border-radius: 50%;
+      padding: 7px;
+      margin-left: 8px;
+      border: 2px solid @chat-white-color;
+    }
+
+    // .uk-iconnav styles
+    margin: auto;
+  }
+
+  // .login-footer styles
+  padding: 15px 0;
+  color: @chat-white-color;
+  margin-bottom: 0;
+  background-color: @chat-blue-dark-color;
+  text-align: center;
+}

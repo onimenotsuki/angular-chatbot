@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 // Custom Modules
 import { ChatModule } from './chat/chat.module';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
