@@ -11,10 +11,11 @@ import { AuthService } from '../../providers/auth.service';
 export class LoginComponent implements OnInit {
   constructor(public _auth: AuthService, public router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   login(provider: string) {
-    this._auth.login(provider);
-    this.router.navigate(['']);
+    this._auth.login(provider).then(() => {
+      this.router.navigate(['']);
+    });
   }
 }

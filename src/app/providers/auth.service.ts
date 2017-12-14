@@ -1,39 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
 
 @Injectable()
 export class AuthService {
   public user: any = {};
 
-  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
+  constructor(public afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe(user => {
       if (!user) {
         return;
       }
 
       this.user.name = user.displayName;
+      this.user.email = user.email;
       this.user.uid = user.uid;
       this.user.photoUrl = user.photoURL;
     });
   }
 
-  isLoggedIn() {
-    if (this.user) {
-      return true;
-    }
-
-    return false;
-  }
-
-  login(provider: string): void {
+  login(provider: string) {
     if (provider === 'google') {
-      this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     } else {
-      this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+      return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
     }
   }
 
