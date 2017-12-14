@@ -6,7 +6,7 @@
           <img class="login-logo" alt="" src="/assets/images/logo.svg"/>
         </div>
 
-        <div class="uk-card-body login-body uk-margin-bottom" id="login-body">
+        <div class="uk-card-body login-body" id="login-body">
           <!-- body -->
           <hr class="login-separator" />
 
@@ -26,6 +26,12 @@
             </div>
             <div class="login-btn-frame">Inicia sesión con Google</div>
           </div>
+
+          <div class="uk-margin newsletter-checkbox">
+            <label><input class="uk-checkbox" type="checkbox"> Suscríbete a nuestro boletín</label>
+          </div>
+
+          <p class="login-text uk-margin-large-top">Al continuar aceptas los <a href="">Términos y Condiciones</a> de nuestro servicio y nuestra <a href="">Política de Privacidad</a>. </p>
         </div>
 
         <div class="uk-flex uk-flex-center uk-flex-column uk-card-media-bottom login-footer">
@@ -35,14 +41,9 @@
           </div>
 
           <div class="uk-iconnav">
-            <li class="social-icon">
-              <a uk-icon="icon: facebook"></a>
-            </li>
-            <li class="social-icon">
-              <a uk-icon="icon: linkedin"></a>
-            </li>
-            <li class="social-icon">
-              <a uk-icon="icon: twitter"></a>
+            <li class="social-icon" *ngFor="let item of _data.social">
+              <a [attr.uk-icon]="item.name" [href]="item.url"
+                 target="_blank"></a>
             </li>
           </div>
 

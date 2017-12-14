@@ -169,6 +169,23 @@
 }
 
 // Login Component
+.newsletter-checkbox {
+  color: @chat-violet-color;
+}
+
+.uk-checkbox {
+  color: @chat-blue-light-color;
+}
+
+.login-text {
+  a {
+    color: @chat-violet-color;
+  }
+
+  font-size: 0.8em;
+  color: @chat-gray-color;
+}
+
 .login {
   &-facebook {
     &:hover {
@@ -256,6 +273,12 @@
   .uk-iconnav {
     .social-icon {
       &:hover {
+        [uk-icon] {
+          color: @chat-blue-dark-color;
+        }
+
+        border: 2px solid @chat-white-color;
+        background-color: @chat-white-color;
         cursor: pointer;
       }
 
@@ -271,6 +294,7 @@
       border-radius: 50%;
       padding: 7px;
       margin-left: 8px;
+      transition: all 0.2s ease-in-out;
       border: 2px solid @chat-white-color;
     }
 
