@@ -11,8 +11,6 @@ export class AuthService {
 
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
     this.afAuth.authState.subscribe(user => {
-      console.log(user);
-
       if (!user) {
         return;
       }
@@ -21,6 +19,14 @@ export class AuthService {
       this.user.uid = user.uid;
       this.user.photoUrl = user.photoURL;
     });
+  }
+
+  isLoggedIn() {
+    if (this.user) {
+      return true;
+    }
+
+    return false;
   }
 
   login(provider: string): void {

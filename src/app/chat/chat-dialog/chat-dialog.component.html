@@ -8,8 +8,12 @@
               <ul class="uk-navbar-nav">
                 <li>
                   <a>
-                    <img class="header-image" width="30px" height="30px" alt="Nombre" src="/assets/images/png/bot.png"/>
-                    <div class="name">{{ _auth.user.name }} <span class="loading" [hidden]="!form.dirty || form.invalid">está escribiendo</span></div>
+                    <img class="header-image" width="30px" height="30px"
+                         [alt]="_auth.user.name"
+                         [src]="_auth.user.photoUrl"/>
+                    <div class="name">
+                      {{ _auth.user.name }} <span class="loading" [hidden]="!form.dirty || form.invalid">está escribiendo</span>
+                    </div>
                   </a>
                 </li>
               </ul>

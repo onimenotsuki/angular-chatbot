@@ -10,17 +10,22 @@ import { AppComponent } from './app.component';
 // Services
 import { AuthService } from './providers/auth.service';
 
+// Guards
+import { AuthGuard } from './auth.guard';
+
 // Custom Modules
 import { ChatModule } from './chat/chat.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
 
 import { environment } from '../environments/environment';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,10 @@ import { environment } from '../environments/environment';
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

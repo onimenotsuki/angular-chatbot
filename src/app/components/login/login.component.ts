@@ -9,7 +9,7 @@ import { AuthService } from '../../providers/auth.service';
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
-  constructor(public _auth: AuthService, private router: Router) { }
+  constructor(public _auth: AuthService, public router: Router) { }
 
   ngOnInit() {}
 
