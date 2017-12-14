@@ -3,6 +3,7 @@
 
 // Variables
 @chat-blue-dark-color: #2E3191;
+@chat-blue-light-color: #0EC9EC;
 @chat-violet-color: #7670B2;
 @chat-facebook-color: #3B5998;
 @chat-google-color: #EA4335;
@@ -18,11 +19,37 @@
   overflow-y: scroll;
 }
 
-.chat-header {
-  .uk-card-media-title {
-    margin-bottom: 0px;
+.uk-card-media-top .uk-navbar-container {
+  .writing {
+    font-size: 0.9em;
+  }
+
+  .name {
+    & > span.loading {
+      /* loading dots */
+      &:after {
+        content: ' .';
+        color: inherit;
+        animation: dots 1s steps(5, end) infinite;
+      }
+
+      color: @chat-blue-light-color;
+      font-size: 0.8em;
+    }
+
+    text-transform: none;
+    font-size: 1.1em;
+    font-weight: 700;
+  }
+
+  .uk-navbar-nav > li > a {
+    .header-image {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+    }
+
     color: inherit;
-    padding: 10px;
   }
 
   color: @chat-white-color;
@@ -256,4 +283,30 @@
   margin-bottom: 0;
   background-color: @chat-blue-dark-color;
   text-align: center;
+}
+
+// Animations
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0,0,0,0);
+    text-shadow:
+    .25em 0 0 rgba(0,0,0,0),
+    .5em 0 0 rgba(0,0,0,0);
+  }
+  40% {
+    color: white;
+    text-shadow:
+    .25em 0 0 rgba(0,0,0,0),
+    .5em 0 0 rgba(0,0,0,0);
+  }
+  60% {
+    text-shadow:
+    .25em 0 0 white,
+    .5em 0 0 rgba(0,0,0,0);
+  }
+  80%, 100% {
+    text-shadow:
+    .25em 0 0 white,
+    .5em 0 0 white;
+  }
 }

@@ -2,8 +2,36 @@
   <div class="uk-container">
     <div class="uk-flex uk-flex-center uk-flex-middle">
       <div class="uk-card uk-card-default uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-width-2-5@l">
-        <div class="uk-card-media-top chat-header">
-          <h3 class="uk-text-center uk-card-media-title">ChatBot</h3>
+        <div class="uk-card-media-top">
+          <div class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-left">
+              <ul class="uk-navbar-nav">
+                <li>
+                  <a>
+                    <img class="header-image" width="30px" height="30px" alt="Nombre" src="/assets/images/png/bot.png"/>
+                    <div class="name">Nombre <span class="loading" [hidden]="!form.dirty || form.invalid">está escribiendo</span></div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="uk-navbar-right">
+              <ul class="uk-navbar-nav">
+                <li>
+                  <a uk-icon="more-vertical" href="#"></a>
+                  <!-- Options nav -->
+                  <div class="uk-navbar-dropdown" uk-dropdown="mode: click; animation: uk-animation-scale-up; offset: -20">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                      <li><a href="#">Información</a></li>
+                      <li><a href="#">Perfil</a></li>
+                      <li class="uk-nav-divider"></li>
+                      <li><a href="#">Salir</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         <ul class="uk-card-body chat-body" id="chat-body">
