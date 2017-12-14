@@ -9,7 +9,7 @@
                 <li>
                   <a>
                     <img class="header-image" width="30px" height="30px" alt="Nombre" src="/assets/images/png/bot.png"/>
-                    <div class="name">Nombre <span class="loading" [hidden]="!form.dirty || form.invalid">está escribiendo</span></div>
+                    <div class="name">{{ _auth.user.name }} <span class="loading" [hidden]="!form.dirty || form.invalid">está escribiendo</span></div>
                   </a>
                 </li>
               </ul>
@@ -25,7 +25,7 @@
                       <li><a href="#">Información</a></li>
                       <li><a href="#">Perfil</a></li>
                       <li class="uk-nav-divider"></li>
-                      <li><a href="#">Salir</a></li>
+                      <li><a (click)="logout()">Salir</a></li>
                     </ul>
                   </div>
                 </li>

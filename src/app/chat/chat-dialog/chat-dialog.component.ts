@@ -1,11 +1,15 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { ChatService } from '../chat.service';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/scan';
 
 // Classes and interfaces
 import { Message } from '../message';
+
+// Services
+import { AuthService } from '../../providers/auth.service';
 
 // UIkit
 declare var UIkit: any;
@@ -22,7 +26,7 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   };
   chatContainer: any;
 
-  constructor(public _chat: ChatService) { }
+  constructor(public _chat: ChatService, public _auth: AuthService, public router: Router) { }
 
   ngOnInit() {
     this.chatContainer = document.getElementById('chat-body');
@@ -38,5 +42,10 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   sendMessage(form: NgForm) {
     this._chat.converse(form.value.content);
     form.resetForm();
+  }
+
+  logout() {
+    this._auth.logout();
+    this.router.navigate(['login']);
   }
 }
