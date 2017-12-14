@@ -11,27 +11,21 @@
           <hr class="login-separator" />
 
           <!-- Login buttons -->
-          <ng-container *ngIf="!_auth.authState | async; else loggedIn">
-            <div class="login-btn-wrapper uk-margin-large-top login-facebook"
-                 (click)="login('facebook')">
-              <div class="login-icon-circle">
-                <span class="login-icon" uk-icon="icon: facebook; ratio: 1.3"></span>
-              </div>
-              <div class="login-btn-frame">Inicia sesión con Facebook</div>
+          <div class="login-btn-wrapper uk-margin-large-top login-facebook"
+               (click)="login('facebook')">
+            <div class="login-icon-circle">
+              <span class="login-icon" uk-icon="icon: facebook; ratio: 1.3"></span>
             </div>
+            <div class="login-btn-frame">Inicia sesión con Facebook</div>
+          </div>
 
-            <div class="login-btn-wrapper uk-margin-small-top login-google"
-                 (click)="login('google')">
-              <div class="login-icon-circle">
-                <span class="login-icon" uk-icon="icon: google; ratio: 1.3"></span>
-              </div>
-              <div class="login-btn-frame">Inicia sesión con Google</div>
+          <div class="login-btn-wrapper uk-margin-small-top login-google"
+               (click)="login('google')">
+            <div class="login-icon-circle">
+              <span class="login-icon" uk-icon="icon: google; ratio: 1.3"></span>
             </div>
-          </ng-container>
-
-          <ng-container #loggedIn>
-            <h1>Ya has iniciado sesión, regresa al chat</h1>
-          </ng-container>
+            <div class="login-btn-frame">Inicia sesión con Google</div>
+          </div>
         </div>
 
         <div class="uk-flex uk-flex-center uk-flex-column uk-card-media-bottom login-footer">
