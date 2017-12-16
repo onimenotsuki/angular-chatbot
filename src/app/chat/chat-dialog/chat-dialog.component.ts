@@ -19,7 +19,7 @@ declare var UIkit: any;
   templateUrl: './chat-dialog.component.html',
   styleUrls: ['./chat-dialog.component.less']
 })
-export class ChatDialogComponent implements OnInit, AfterViewChecked {
+export class ChatDialogComponent implements OnInit {
   messages: Observable<Message[]>;
   chatMessage = {
     content: ''
