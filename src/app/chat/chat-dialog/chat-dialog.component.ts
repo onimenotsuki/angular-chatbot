@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../chat.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -35,12 +35,18 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
       .scan((acc, val) => acc.concat(val));
   }
 
-  ngAfterViewChecked() {
-    this.chatContainer.scrollBy(0, this.chatContainer.scrollHeight);
-  }
-
   sendMessage(form: NgForm) {
-    this._chat.converse(form.value.content);
+    this._chat.converse(form.value.content)
+      .then(res => {
+        const speech = res.result.fulfillment.speech;
+        const botMessage = new Message(speech, 'bot');
+        this._chat.update(botMessage);
+
+        setTimeout(() => {
+          this.chatContainer.scrollBy(0, this.chatContainer.scrollHeight + 50);
+        }, 50);
+      });;
+
     form.resetForm();
   }
 

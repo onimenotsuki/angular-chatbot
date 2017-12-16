@@ -1,57 +1,53 @@
-<section class="uk-section">
-  <div class="uk-container">
-    <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
-      <div class="uk-card uk-card-default uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-width-2-5@l">
-        <div class="uk-card-media-top login-header uk-margin-large-top uk-margin-bottom">
-          <img class="login-logo" alt="" src="/assets/images/logo.svg"/>
+<div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
+  <div class="uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-width-2-5@l">
+    <div class="uk-card-media-top login-header uk-margin-large-top uk-margin-bottom">
+      <img class="login-logo" alt="" src="/assets/images/logo.svg"/>
+    </div>
+
+    <div class="uk-card-body login-body" id="login-body">
+      <!-- body -->
+      <hr class="login-separator" />
+
+      <!-- Login buttons -->
+      <div class="login-btn-wrapper uk-margin-large-top login-facebook"
+           (click)="login('facebook')">
+        <div class="login-icon-circle">
+          <span class="login-icon" uk-icon="icon: facebook; ratio: 1.3"></span>
         </div>
-
-        <div class="uk-card-body login-body" id="login-body">
-          <!-- body -->
-          <hr class="login-separator" />
-
-          <!-- Login buttons -->
-          <div class="login-btn-wrapper uk-margin-large-top login-facebook"
-               (click)="login('facebook')">
-            <div class="login-icon-circle">
-              <span class="login-icon" uk-icon="icon: facebook; ratio: 1.3"></span>
-            </div>
-            <div class="login-btn-frame">Inicia sesión con Facebook</div>
-          </div>
-
-          <div class="login-btn-wrapper uk-margin-small-top login-google"
-               (click)="login('google')">
-            <div class="login-icon-circle">
-              <span class="login-icon" uk-icon="icon: google; ratio: 1.3"></span>
-            </div>
-            <div class="login-btn-frame">Inicia sesión con Google</div>
-          </div>
-
-          <div class="uk-margin newsletter-checkbox">
-            <label><input class="uk-checkbox" type="checkbox"> Suscríbete a nuestro boletín</label>
-          </div>
-
-          <p class="login-text uk-margin-large-top">Al continuar aceptas los <a href="">Términos y Condiciones</a> de nuestro servicio y nuestra <a href="">Política de Privacidad</a>. </p>
-        </div>
-
-        <div class="uk-flex uk-flex-center uk-flex-column uk-card-media-bottom login-footer">
-          <!-- Footer -->
-          <div>
-            <p class="footer-follow">Visítanos</p>
-          </div>
-
-          <div class="uk-iconnav">
-            <li class="social-icon" *ngFor="let item of _data.social">
-              <a [attr.uk-icon]="item.name" [href]="item.url"
-                 target="_blank"></a>
-            </li>
-          </div>
-
-          <div class="uk-margin-top">
-            <p class="footer-copy">&copy; 2017 Aleph Zero Estudio Digital</p>
-          </div>
-        </div>
+        <div class="login-btn-frame">Inicia sesión con Facebook</div>
       </div>
+
+      <div class="login-btn-wrapper uk-margin-small-top login-google"
+           (click)="login('google')">
+        <div class="login-icon-circle">
+          <span class="login-icon" uk-icon="icon: google; ratio: 1.3"></span>
+        </div>
+        <div class="login-btn-frame">Inicia sesión con Google</div>
+      </div>
+
+      <div class="uk-margin newsletter-checkbox">
+        <label><input class="uk-checkbox" type="checkbox"> Suscríbete a nuestro boletín</label>
+      </div>
+
+      <p class="login-text uk-margin-top">Al continuar aceptas los <a href="">Términos y Condiciones</a> de nuestro servicio y nuestra <a href="">Política de Privacidad</a>. </p>
     </div>
   </div>
-</section>
+</div>
+
+<div class="uk-flex uk-flex-center uk-flex-column login-footer">
+  <!-- Footer -->
+  <div>
+    <p class="footer-follow">Visítanos</p>
+  </div>
+
+  <div class="uk-iconnav">
+    <li class="social-icon" *ngFor="let item of _data.social">
+      <a [attr.uk-icon]="item.name" [href]="item.url"
+         target="_blank"></a>
+    </li>
+  </div>
+
+  <div class="uk-margin-top">
+    <p class="footer-copy">&copy; 2018 Aleph Zero Estudio Digital</p>
+  </div>
+</div>

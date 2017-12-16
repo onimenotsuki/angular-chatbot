@@ -1,85 +1,85 @@
-<section class="uk-section">
-  <div class="uk-container">
-    <div class="uk-flex uk-flex-center uk-flex-middle">
-      <div class="uk-card uk-card-default uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-width-2-5@l">
-        <div class="uk-card-media-top">
-          <div class="uk-navbar-container" uk-navbar>
-            <div class="uk-navbar-left">
-              <ul class="uk-navbar-nav">
-                <li>
-                  <a>
-                    <img class="header-image" width="30px" height="30px"
-                         [alt]="_auth.user.name"
-                         [src]="_auth.user.photoUrl"/>
-                    <div class="name">
-                      {{ _auth.user.name }} <span class="loading" [hidden]="!form.dirty || form.invalid">está escribiendo</span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="uk-navbar-right">
-              <ul class="uk-navbar-nav">
-                <li>
-                  <a uk-icon="more-vertical" href="#"></a>
-                  <!-- Options nav -->
-                  <div class="uk-navbar-dropdown" uk-dropdown="mode: click; animation: uk-animation-scale-up; offset: -20">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                      <li><a href="#">Información</a></li>
-                      <li><a href="#">Perfil</a></li>
-                      <li class="uk-nav-divider"></li>
-                      <li><a (click)="logout()">Salir</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+<div class="uk-flex uk-flex-center uk-flex-middle">
+  <div class="uk-card uk-card-default uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-width-2-5@l">
+    <div class="uk-card-media-top" uk-sticky>
+      <div class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+          <ul class="uk-navbar-nav">
+            <li>
+              <a>
+                <img class="header-image" width="30px" height="30px"
+                     [alt]="_auth.user.name"
+                     [src]="_auth.user.photoUrl"/>
+                <div class="name">
+                  {{ _auth.user.name }} <span class="loading" [hidden]="!form.dirty || form.invalid">está escribiendo</span>
+                </div>
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <ul class="uk-card-body chat-body" id="chat-body">
-          <li *ngFor="let message of messages | async"
-              class="chat-dialog-wrapper">
-            <ng-container *ngIf="message.content">
-              <span [hidden]="message.sentBy === 'user'" class="img-chat left">
-                <img alt="ChatBot" class="uk-border-circle" src="assets/images/png/bot.png"/>
-              </span>
-
-              <div class="chat-dialog-box chat-left"
-                   [ngClass]="{ 'chat-left': message.sentBy == 'bot',
-                          'chat-right': message.sentBy == 'user' }">
-                <p class="chat-dialog-message">{{ message.content }}</p>
+        <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav">
+            <li>
+              <a uk-icon="more-vertical" href="#"></a>
+              <!-- Options nav -->
+              <div class="uk-navbar-dropdown" uk-dropdown="mode: click; animation: uk-animation-scale-up">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                  <li><a href="#">Información</a></li>
+                  <li><a href="#">Perfil</a></li>
+                  <li class="uk-nav-divider"></li>
+                  <li><a (click)="logout()">Salir</a></li>
+                </ul>
               </div>
-            </ng-container>
-          </li>
-        </ul>
-
-        <div class="uk-card-media-bottom chat-footer">
-          <form #form="ngForm"
-                class="uk-grid-collapse uk-flex"
-                (ngSubmit)="sendMessage(form)"
-                novalidate
-                uk-grid>
-            <div class="uk-width-1-5@s uk-width-1-4">
-              <button type="submit"
-                      [disabled]="form.invalid"
-                      class="uk-width-1-1 uk-button uk-button-default chat-send-button">
-                <span uk-icon="arrow-right"></span>
-              </button>
-            </div>
-
-            <div class="uk-width-expand uk-flex-first">
-              <input #chat="ngModel"
-                     [(ngModel)]="chatMessage.content"
-                     class="uk-input chat-input"
-                     name="content"
-                     required
-                     placeholder="Escribe tu mensaje..."/>
-            </div>
-          </form>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+
+    <ul class="uk-card-body chat-body" id="chat-body">
+      <li *ngFor="let message of messages | async"
+          class="chat-dialog-wrapper">
+        <ng-container *ngIf="message.content">
+          <span [hidden]="message.sentBy === 'user'" class="img-chat left">
+            <img alt="ChatBot" class="uk-border-circle" src="assets/images/png/bot.png"/>
+          </span>
+
+          <div class="chat-dialog-box chat-left"
+               [ngClass]="{ 'chat-left': message.sentBy == 'bot',
+                      'chat-right': message.sentBy == 'user' }">
+            <p class="chat-dialog-message">{{ message.content }}</p>
+          </div>
+        </ng-container>
+      </li>
+    </ul>
   </div>
-</section>
+</div>
+
+<div class="uk-flex uk-flex-center uk-flex-middle chat-footer-container">
+  <div class="uk-card uk-card-default uk-width-1-1 uk-width-1-2@s uk-width-1-3@m uk-width-2-5@l">
+    <div class="uk-card-media-bottom chat-footer">
+      <form #form="ngForm"
+            class="uk-grid-collapse uk-flex"
+            (ngSubmit)="sendMessage(form)"
+            novalidate
+            uk-grid>
+        <div class="uk-width-1-5@s uk-width-1-4">
+          <button type="submit"
+                  [disabled]="form.invalid"
+                  class="uk-width-1-1 uk-button uk-button-default chat-send-button">
+            <span uk-icon="arrow-right"></span>
+          </button>
+        </div>
+
+        <div class="uk-width-expand uk-flex-first">
+          <input #chat="ngModel"
+                 [(ngModel)]="chatMessage.content"
+                 class="uk-input chat-input"
+                 name="content"
+                 required
+                 placeholder="Escribe tu mensaje..."/>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
