@@ -24,6 +24,10 @@ export class AuthService {
     });
   }
 
+  getUser() {
+    return this.afAuth.authState;
+  }
+
   login(provider: string) {
     if (provider === 'google') {
       return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());

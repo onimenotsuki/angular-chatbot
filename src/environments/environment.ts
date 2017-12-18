@@ -8,6 +8,7 @@ export const environment = {
   dialogflow: {
     angularBot: '8bae111177264b018647e31b772ba9a4'
   },
+  apiUrl: 'http://alephzero-api-dev.us-west-2.elasticbeanstalk.com/api',
   firebase: {
     apiKey: 'AIzaSyBi6SpjTw9PJPOKkjYsJEXPVQXbBqR-DUE',
     authDomain: 'firechat-350ed.firebaseapp.com',
@@ -15,5 +16,11 @@ export const environment = {
     projectId: 'firechat-350ed',
     storageBucket: 'firechat-350ed.appspot.com',
     messagingSenderId: '321548219234'
+  },
+  mailchimp: {
+    listId: '25397f9883',
+    instance: 'us14',
+    apiKey: 'de4e609f178dc2f590de6b2840949153-us14',
+    user: 'alephzeroad',
   }
 };
