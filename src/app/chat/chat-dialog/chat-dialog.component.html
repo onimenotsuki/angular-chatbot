@@ -24,7 +24,7 @@
               <!-- Options nav -->
               <div class="uk-navbar-dropdown" uk-dropdown="mode: click; animation: uk-animation-scale-up">
                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                  <li><a href="#">Información</a></li>
+                  <li><a (click)="_newsletter.showModal('#newsletter-modal')">Suscribirse</a></li>
                   <li><a href="#">Perfil</a></li>
                   <li class="uk-nav-divider"></li>
                   <li><a (click)="logout()">Salir</a></li>
@@ -80,6 +80,28 @@
                  placeholder="Escribe tu mensaje..."/>
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+
+<div id="newsletter-modal" class="uk-modal-full" uk-modal>
+  <div class="uk-modal-dialog">
+    <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+    <div class="uk-grid-collapse uk-child-width-1-2@m uk-child-width-1-1 uk-flex-middle uk-flex-center" uk-grid>
+      <div class="uk-paddin-large uk-text-center" uk-height-viewport>
+        <h3 class="uk-margin-large-top newsletter-title">¿Deseas suscribirte a nuestro boletín de promociones y noticias?</h3>
+
+        <img class="client-service-img uk-margin" alt="Atención al cliente" src="/assets/images/client-service.svg" />
+        <p class="newsletter-paragraph">
+          Podrás disfrutar de todas nuestras promociones y noticias, así como eventos especiales y contenido exclusivamente para ti.
+        </p>
+
+        <button (click)="addToNewsletter()" class="uk-button uk-button-primary chat-button-default">Si, deseo suscribirme</button>
+        <button (click)="_newsletter.hideModal('#newsletter-modal')" class="uk-button uk-button-default" type="button">No, para otra ocasión</button>
+
+        <p class="privacy-text uk-margin-top">Al continuar aceptas los <a href="">Términos y Condiciones</a> de nuestro servicio y nuestra <a href="">Política de Privacidad</a>. </p>
+      </div>
     </div>
   </div>
 </div>

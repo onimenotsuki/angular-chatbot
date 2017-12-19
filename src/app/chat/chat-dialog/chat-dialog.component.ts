@@ -10,9 +10,7 @@ import { Message } from '../message';
 
 // Services
 import { AuthService } from '../../providers/auth.service';
-
-// UIkit
-declare var UIkit: any;
+import { NewsletterService } from '../../providers/newsletter.service';
 
 @Component({
   selector: 'chat-dialog',
@@ -25,8 +23,10 @@ export class ChatDialogComponent implements OnInit {
     content: ''
   };
   chatContainer: any;
+  newsletter: boolean = false;
 
-  constructor(public _chat: ChatService, public _auth: AuthService, public router: Router) { }
+  constructor(public _chat: ChatService, public _auth: AuthService,
+              public router: Router, public _newsletter: NewsletterService) { }
 
   ngOnInit() {
     this.chatContainer = document.getElementById('chat-body');
@@ -35,7 +35,7 @@ export class ChatDialogComponent implements OnInit {
       .scan((acc, val) => acc.concat(val));
   }
 
-  sendMessage(form: NgForm) {
+  sendMessage(form: NgForm): void {
     this._chat.converse(form.value.content)
       .then(res => {
         const speech = res.result.fulfillment.speech;
@@ -50,8 +50,21 @@ export class ChatDialogComponent implements OnInit {
     form.resetForm();
   }
 
-  logout() {
+  logout(): void {
     this._auth.logout();
     this.router.navigate(['login']);
+  }
+
+  addToNewsletter(): void {
+    this._newsletter.hideModal('#newsletter-modal');
+
+    this._newsletter.addSubscriptor({ email: this._auth.user.email })
+      .subscribe(data => {
+        this._newsletter.showNotification();
+      });
+  }
+
+  confirmation(): void {
+    this._newsletter.showModal('#newsletter-modal');
   }
 }

@@ -10,6 +10,7 @@
 @chat-white-color: #FFF;
 @chat-lightgray-color: #E9E9F0;
 @chat-gray-color: #AFAFB4;
+@chat-gray-dark-color: darken(@chat-gray-color, 10%);
 
 // Styles for custom elements
 .uk-card-body.chat-body {
@@ -177,7 +178,7 @@
   color: @chat-blue-light-color;
 }
 
-.login-text {
+.privacy-text {
   a {
     color: @chat-violet-color;
   }
@@ -345,4 +346,38 @@
     .25em 0 0 white,
     .5em 0 0 white;
   }
+}
+
+// newsletter modal styles
+.client-service-img {
+  width: 190px;
+}
+
+.newsletter-title {
+  color: @chat-violet-color;
+}
+
+.newsletter-paragraph {
+  color: @chat-gray-dark-color;
+}
+
+*.chat-button-default {
+  &:hover {
+    background-color: darken(@chat-blue-dark-color, 10%);
+  }
+
+  background-color: @chat-blue-dark-color;
+}
+
+.uk-button {
+  text-transform: none;
+}
+
+// Change default colors of close button for modal
+.uk-close {
+  &:hover {
+    color: red;
+  }
+
+  background-color: transparent;
 }
