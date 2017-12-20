@@ -67,4 +67,9 @@ export class ChatDialogComponent implements OnInit {
   confirmation(): void {
     this._newsletter.showModal('#newsletter-modal');
   }
+
+  navigateAndHideModal(route: string, modal: string) {
+    this._newsletter.hideModal(modal);
+    this.router.navigate([route]);
+  }
 }

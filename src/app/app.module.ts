@@ -18,6 +18,7 @@ import { AuthGuard } from './auth.guard';
 // Custom Modules
 import { ChatModule } from './chat/chat.module';
 import { AppRoutingModule } from './app-routing.module';
+import { PagesModule } from './pages/pages.module';
 import { LoginComponent } from './components/login/login.component';
 
 import { environment } from '../environments/environment';
@@ -32,6 +33,7 @@ import { SafePipe } from './pipes/safe.pipe';
   imports: [
     BrowserModule,
     ChatModule,
+    PagesModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

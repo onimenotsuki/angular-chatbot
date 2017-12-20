@@ -99,7 +99,11 @@
         <button (click)="addToNewsletter()" class="uk-button uk-button-primary chat-button-default">Si, deseo suscribirme</button>
         <button (click)="_newsletter.hideModal('#newsletter-modal')" class="uk-button uk-button-default" type="button">No, para otra ocasión</button>
 
-        <p class="privacy-text uk-margin-top">Al continuar aceptas los <a href="">Términos y Condiciones</a> de nuestro servicio y nuestra <a href="">Política de Privacidad</a>. </p>
+        <p class="privacy-text uk-margin-top">
+          Al continuar aceptas los
+          <a (click)="navigateAndHideModal('/terminos-del-servicio', '#newsletter-modal')">Términos y Condiciones</a> de nuestro servicio y nuestra
+          <a (click)="navigateAndHideModal('/politica-de-privacidad', '#newsletter-modal')">Política de Privacidad</a>.
+        </p>
       </div>
     </div>
   </div>
