@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/scan';
+import 'rxjs/add/operator/count';
 
 // Classes and interfaces
 import { Message } from '../message';
@@ -33,6 +34,14 @@ export class ChatDialogComponent implements OnInit {
     // appends to array after each new message is added to feedSource
     this.messages = this._chat.conversation.asObservable()
       .scan((acc, val) => acc.concat(val));
+
+    setTimeout(() => {
+      if (!localStorage.getItem('popup:newsletter')) {
+        let date = new Date();
+        localStorage.setItem('popup:newsletter', date.toString());
+        this._newsletter.showModal('#newsletter-modal');
+      }
+    }, 15000);
   }
 
   sendMessage(form: NgForm): void {
