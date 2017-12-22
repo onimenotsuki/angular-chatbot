@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/scan';
-import 'rxjs/add/operator/count';
 
 // Classes and interfaces
 import { Message } from '../message';
@@ -27,7 +26,8 @@ export class ChatDialogComponent implements OnInit {
   newsletter: boolean = false;
 
   constructor(public _chat: ChatService, public _auth: AuthService,
-              public router: Router, public _newsletter: NewsletterService) { }
+              public router: Router, public _newsletter: NewsletterService) {
+  }
 
   ngOnInit() {
     this.chatContainer = document.getElementById('chat-body');
@@ -35,13 +35,7 @@ export class ChatDialogComponent implements OnInit {
     this.messages = this._chat.conversation.asObservable()
       .scan((acc, val) => acc.concat(val));
 
-    setTimeout(() => {
-      if (!localStorage.getItem('popup:newsletter')) {
-        let date = new Date();
-        localStorage.setItem('popup:newsletter', date.toString());
-        this._newsletter.showModal('#newsletter-modal');
-      }
-    }, 15000);
+    this._newsletter.showModal('#newsletter-modal');
   }
 
   sendMessage(form: NgForm): void {
@@ -54,7 +48,7 @@ export class ChatDialogComponent implements OnInit {
         setTimeout(() => {
           this.chatContainer.scrollBy(0, this.chatContainer.scrollHeight + 50);
         }, 50);
-      });;
+      });
 
     form.resetForm();
   }
@@ -80,5 +74,14 @@ export class ChatDialogComponent implements OnInit {
   navigateAndHideModal(route: string, modal: string) {
     this._newsletter.hideModal(modal);
     this.router.navigate([route]);
+  }
+
+  popupNewsletter(user) {
+    const date = new Date();
+
+    if (!localStorage.getItem(`popup:newsletter:${ user.uid }`)) {
+      localStorage.setItem(`popup:newsletter:${ user.uid }`, date.toString());
+      this._newsletter.showModal('#newsletter-modal');
+    }
   }
 }

@@ -20,7 +20,7 @@ export const environment = {
   mailchimp: {
     listId: '25397f9883',
     instance: 'us14',
-    apiKey: 'de4e609f178dc2f590de6b2840949153-us14',
+    apiKey: '1b2026725fba48db7f9746b114280cef-us14',
     user: 'alephzeroad',
   }
 };

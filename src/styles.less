@@ -3,6 +3,7 @@
 
 // Variables
 @chat-blue-dark-color: #2E3191;
+@chat-blue-darker-color: #2C2D42;
 @chat-blue-light-color: #0EC9EC;
 @chat-violet-color: #7670B2;
 @chat-facebook-color: #3B5998;
@@ -354,11 +355,23 @@
 }
 
 .newsletter-title {
-  color: @chat-violet-color;
+  padding: 30px 15px 10px 15px;
+  color: @chat-white-color;
 }
 
 .newsletter-paragraph {
-  color: @chat-gray-dark-color;
+  color: @chat-blue-darker-color;
+}
+
+.newsletter-header {
+  background-color: @chat-blue-dark-color;
+  padding-bottom: 25px;
+  border: 4px solid @chat-blue-dark-color;
+}
+
+.newsletter-footer {
+  padding-top: 20px;
+  border: 4px solid @chat-blue-dark-color;
 }
 
 *.chat-button-default {
@@ -377,6 +390,14 @@
 .uk-close {
   &:hover {
     color: red;
+  }
+
+  .uk-modal-dialog & {
+    &:hover {
+      color: red;
+    }
+
+    color: @chat-white-color;
   }
 
   background-color: transparent;
