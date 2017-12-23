@@ -370,20 +370,37 @@
 }
 
 .newsletter-footer {
-  padding-top: 20px;
+  padding: 20px 10px;
   border: 4px solid @chat-blue-dark-color;
 }
 
 *.chat-button-default {
   &:hover {
-    background-color: darken(@chat-blue-dark-color, 10%);
+    background-color: @chat-blue-dark-color;
+    color: @chat-white-color;
+    border: 3px solid @chat-blue-dark-color;
   }
 
-  background-color: @chat-blue-dark-color;
+  background-color: @chat-white-color;
+  color: @chat-blue-dark-color;
+  border: 3px solid @chat-blue-dark-color;
+}
+
+*.chat-button-primary {
+  &:hover {
+    background-color: @chat-gray-color;
+    color: @chat-blue-dark-color;
+    border: 3px solid @chat-gray-color;
+  }
+
+  background-color: @chat-lightgray-color;
+  color: @chat-blue-dark-color;
+  border: 3px solid @chat-lightgray-color;
 }
 
 .uk-button {
   text-transform: none;
+  transition: all 0.3s ease-in-out;
 }
 
 // Change default colors of close button for modal

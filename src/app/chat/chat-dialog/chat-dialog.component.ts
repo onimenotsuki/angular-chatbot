@@ -34,8 +34,6 @@ export class ChatDialogComponent implements OnInit {
     // appends to array after each new message is added to feedSource
     this.messages = this._chat.conversation.asObservable()
       .scan((acc, val) => acc.concat(val));
-
-    this._newsletter.showModal('#newsletter-modal');
   }
 
   sendMessage(form: NgForm): void {
