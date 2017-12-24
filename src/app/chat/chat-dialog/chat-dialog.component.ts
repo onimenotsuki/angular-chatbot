@@ -18,6 +18,7 @@ import { NewsletterService } from '../../providers/newsletter.service';
   styleUrls: ['./chat-dialog.component.less']
 })
 export class ChatDialogComponent implements OnInit {
+  private members: string[] = [];
   messages: Observable<Message[]>;
   chatMessage = {
     content: ''
@@ -34,6 +35,14 @@ export class ChatDialogComponent implements OnInit {
     // appends to array after each new message is added to feedSource
     this.messages = this._chat.conversation.asObservable()
       .scan((acc, val) => acc.concat(val));
+
+    // Show newsletter modal
+    this.messages.
+      subscribe(items => {
+        if (items.length === 11) {
+          this.popupNewsletterIfIsMember(this._auth.user);
+        }
+      });
   }
 
   sendMessage(form: NgForm): void {
@@ -81,5 +90,22 @@ export class ChatDialogComponent implements OnInit {
       localStorage.setItem(`popup:newsletter:${ user.uid }`, date.toString());
       this._newsletter.showModal('#newsletter-modal');
     }
+  }
+
+  popupNewsletterIfIsMember(user) {
+    this._newsletter.getSubscriptors()
+      .subscribe({
+        next: (members) => {
+          // Populate private instance property of members
+          this.members = members;
+        },
+        error: (error) => console.error(error),
+        complete: () => {
+          if (this.members.indexOf(user.email) === -1) {
+            // Launch newsletter popup only if doesn't exist in localStorage
+            this.popupNewsletter(user);
+          }
+        }
+      });
   }
 }
