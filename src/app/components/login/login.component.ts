@@ -6,20 +6,18 @@ import 'rxjs/add/operator/take';
 
 // Services
 import { AuthService } from '../../providers/auth.service';
-import { DataService } from '../../providers/data.service';
 import { NewsletterService } from '../../providers/newsletter.service';
 
 @Component({
   selector: 'login',
-  templateUrl: './login.component.html',
-  providers: [DataService]
+  templateUrl: './login.component.html'
 })
 export class LoginComponent {
   user: any;
   newsletter: boolean = false;
 
   constructor(public _auth: AuthService, public router: Router,
-              public _data: DataService, public _newsletter: NewsletterService) { }
+              public _newsletter: NewsletterService) { }
 
   login(provider: string): void {
     this._auth.login(provider).then(() => {

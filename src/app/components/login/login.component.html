@@ -38,20 +38,4 @@
   </div>
 </div>
 
-<div class="uk-flex uk-flex-center uk-flex-column login-footer">
-  <!-- Footer -->
-  <div>
-    <p class="footer-follow">Visítanos</p>
-  </div>
-
-  <div class="uk-iconnav">
-    <li class="social-icon" *ngFor="let item of _data.social">
-      <a [attr.uk-icon]="item.name" [href]="item.url"
-         target="_blank"></a>
-    </li>
-  </div>
-
-  <div class="uk-margin-top">
-    <p class="footer-copy">&copy; 2018 Aleph Zero Estudio Digital</p>
-  </div>
-</div>
+<app-footer></app-footer>
