@@ -5,7 +5,8 @@ import { RouterModule } from '@angular/router';
 // Components
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';
-
+import { FooterComponent } from '../shared/footer/footer.component';
+import { NavbarComponent } from '../shared/navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -14,11 +15,14 @@ import { TermsComponent } from './terms/terms.component';
   ],
   declarations: [
     PrivacyComponent,
-    TermsComponent
+    TermsComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   exports: [
     PrivacyComponent,
-    TermsComponent
+    TermsComponent,
+    FooterComponent
   ]
 })
 export class PagesModule { }

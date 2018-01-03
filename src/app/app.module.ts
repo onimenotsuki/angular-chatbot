@@ -23,14 +23,13 @@ import { LoginComponent } from './components/login/login.component';
 
 import { environment } from '../environments/environment';
 import { SafePipe } from './pipes/safe.pipe';
-import { FooterComponent } from './shared/footer/footer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SafePipe,
-    FooterComponent
+    SafePipe
   ],
   imports: [
     BrowserModule,
