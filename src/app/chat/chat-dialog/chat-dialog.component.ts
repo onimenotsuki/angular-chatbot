@@ -108,4 +108,10 @@ export class ChatDialogComponent implements OnInit {
         }
       });
   }
+
+  // Add to localStorage popupNewsletter and remove modal
+  hideModal() {
+    popupNewsletter(this._auth.user);
+    this._newsletter.hideModal('#newsletter-modal');
+  }
 }
