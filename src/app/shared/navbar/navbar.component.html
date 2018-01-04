@@ -1,3 +1,24 @@
-<p>
-  navbar works!
-</p>
+<nav class="uk-navbar-container uk-margin uk-box-shadow-medium chat-navbar-default" uk-navbar>
+  <div class="uk-navbar-center">
+    <a class="uk-navbar-item uk-logo" routerLink="/">
+      <img class="navbar-logo" alt="" src="/assets/images/logo.svg"/>
+    </a>
+  </div>
+</nav>
+
+<div class="uk-container">
+  <div class="uk-flex uk-flex-center">
+    <div class="uk-width-1-1 uk-width-4-5@m uk-width-3-4@l">
+      <a class="uk-button uk-margin-right chat-button-nav uk-button-small"
+         routerLink="/politica-de-privacidad"
+         routerLinkActive="active">Política de privacidad</a>
+      <a class="uk-button uk-margin-right chat-button-nav uk-button-small"
+         routerLink="/terminos-del-servicio"
+         routerLinkActive="active">Términos y condiciones</a>
+      <a routerLink="/" class="uk-button chat-button-nav uk-button-small">Chat</a>
+
+      <!-- Separator -->
+      <hr/>
+    </div>
+  </div>
+</div>

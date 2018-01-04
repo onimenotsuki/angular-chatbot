@@ -386,6 +386,23 @@
   border: 3px solid @chat-blue-dark-color;
 }
 
+*.chat-button-nav {
+  &:hover {
+    background-color: @chat-white-color;
+    border: 3px solid @chat-blue-dark-color;
+    color: @chat-blue-dark-color;
+  }
+
+  &.active {
+    background-color: @chat-blue-dark-color;
+    color: @chat-white-color;
+    border: 3px solid @chat-blue-dark-color;
+  }
+
+  color: @chat-blue-dark-color;
+  border: 3px solid @chat-white-color;
+}
+
 *.chat-button-primary {
   &:hover {
     background-color: @chat-gray-color;
@@ -418,4 +435,13 @@
   }
 
   background-color: transparent;
+}
+
+// Navbar
+.chat-navbar-default[uk-navbar] {
+  background-color: @chat-white-color;
+}
+
+.navbar-logo {
+  width: 60px;
 }
